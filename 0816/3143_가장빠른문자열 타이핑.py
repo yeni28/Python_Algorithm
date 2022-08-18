@@ -20,7 +20,7 @@ for tc in range(1, T+1):
         if j == b:
             cnt += 1
             j = 0
-            
+
     result = a - ((b-1) * cnt)
 
     print(f'#{tc} {result}')

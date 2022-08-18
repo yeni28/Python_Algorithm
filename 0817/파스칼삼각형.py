@@ -9,7 +9,6 @@ for tc in range(1,T+1):
             else:
                 arr[i][j] = arr[i-1][j] + arr[i-1][j-1] #점화식
     print(f'#{tc}')
-
     #print(arr[4][3]) => 4C3의 개수 랑 같다
     for n in range(N):
         for m in range(N):
