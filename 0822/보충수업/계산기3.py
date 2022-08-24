@@ -7,13 +7,13 @@ def infix_to_postfix(exp):
 
     for token in exp:
         #피연산자
-        if '0'<= token <='9':
+        if '0'<= token <= '9':
             result.append(token)
         # 닫는 괄호라면,
         elif token ==')':
             while stack[-1] != '(': #여는 괄호가 나올때까지
                 result.append(stack.pop()) #팝해서 값 추가후
-                stack.pop() # 괄호쌍을 찾았으니 제거
+            stack.pop() # 괄호쌍을 찾았으니 제거
         else:
             if stack:
                 #스택이 있고, 우선순위가 높다면
@@ -33,7 +33,7 @@ def calc(exp):
         if '0'<= token <='9':
             stack.append(int(token))
         else:
-            op2 = stack.pop() #뒤에오는 수
+            op2 = stack.pop() # 뒤에오는 수
             op1 = stack.pop() # 앞에 오는 수
             if token == '+':
                 stack.append(op1 + op2)
