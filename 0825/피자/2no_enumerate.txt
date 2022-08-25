@@ -1,0 +1,48 @@
+from collections import deque
+
+T = int(input())
+
+for t in range(1,T+1):
+    
+    N,M = map(int,input().split())
+
+###enumerate 없이 (치즈양,인덱스)를 원소로 하는 deque를 생성
+    c_list = deque(map(int,input().split()))
+
+    c_queue = deque([])
+
+    for i in range(1,M+1):
+        
+        c_queue.append((c_list[i-1],i))
+#########
+
+    
+    fire = deque([])
+
+    for i in range(N):
+        
+        fire.append(c_queue.popleft())
+    
+    remain = M-N
+
+    complete = 0
+    
+    while complete != M-1:
+        
+        if fire[0][0] // 2 == 0:
+            
+            fire.popleft()
+
+            complete += 1
+
+            if c_queue != deque():
+            
+                fire.append(c_queue.popleft())
+                remain -= 1
+        
+        else:
+            
+            fire[0] = (fire[0][0]//2,fire[0][1])
+            fire.rotate(-1)
+
+    print('#'+str(t),fire[0][1],sep=' ')

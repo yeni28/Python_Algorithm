@@ -13,6 +13,7 @@ def bfs(v, N): #필요한 것 : 시작정점(v), 마지막 정점 번호(N)
             if visited[w] == 0:
                 q.append(w)
                 visited[w] = visited[v] + 1
+
 V, E = map(int,input().split())
 N = V + 1 # 여기서의 N은 개수에요! 헷갈리지 마세요! (N 정점 개수)
 adjList = [[] for _ in range(N)]
